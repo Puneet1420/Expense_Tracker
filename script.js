@@ -13,27 +13,18 @@ const text = document.getElementById('text');
 
 const amount = document.getElementById('amount');
 
+//dark  mode configration
 const body = document.querySelector('#body');
 
-const toggle = document.getElementById('mode')
+const toggle = document.getElementsByClassName('slider round')
 
-let bgc = "white"
+const h1 = document.querySelector('h1');
+const h2 = document.querySelector('h2');
+const h3 = document.querySelector('h3');
+const h4 = document.querySelector('h4');
+const label = document.querySelector('label');
 
-toggle.addEventListener('click', () => {
-  if (bgc === "white") {
-    bgc = "dark"
-    body.classList.remove('white'),
-    body.classList.add('dark')
-  } else{
-    bgc = "white",
-    body.classList.remove('dark'),
-    body.classList.add('white')
-  }
-
-})
-
-
-
+// main code
 const localStorageTransactions = JSON.parse(localStorage.getItem('Transactions'));
 
 let Transactions = localStorage.getItem('Transactions') !== null ? localStorageTransactions : [];
@@ -148,3 +139,28 @@ let Transactions = localStorage.getItem('Transactions') !== null ? localStorageT
 
   // dark mode js
 
+  let bgc = "black";
+
+
+  //dark mode--------------------------------------------------------
+  
+  toggle[0].addEventListener('click', function(){ 
+   if (bgc === "black") {
+    body.style.backgroundColor = bgc;
+    bgc = "white";
+    h1.style.color = "white";
+    h2.style.color = "white";
+    h3.style.color = "white";
+    h4.style.color = "white";
+    label.style.color = "white";
+  } else {
+     body.style.backgroundColor = bgc;
+     bgc = "black";
+     h1.style.color = "black";
+     h2.style.color = "black";
+     h3.style.color = "black";
+     h4.style.color = "black";
+     label.style.color = "black";
+   }
+  })
+  
